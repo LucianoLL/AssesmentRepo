@@ -13,6 +13,7 @@ Google Gemini's AI Overview
 import React, {useState, useEffect} from "react"
 import { useParams } from "next/navigation";
 import axios from "axios";
+import ProductDetails from "@/app/components/ProductDetails";
 
 export default function productPage() {
     const [data, setData,] = useState([]);
@@ -43,7 +44,7 @@ export default function productPage() {
 
     return (
         <div className="flex justify-center items-center min-h-screen p-8 gap-16 sm:p-20">
-            <p>{data.name}</p>
+            <ProductDetails data={data} />
         </div>
     );
 }

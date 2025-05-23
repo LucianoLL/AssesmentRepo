@@ -37,7 +37,9 @@ export default function ProductGrid() {
     return(
         <Grid container spacing={4}>
             {data.map((product) => (
-                <Grid key={product.id}>
+                <Grid 
+                    key={product.id} 
+                    className='hover:shadow-xl/75 w-64'>
                     <ProductCard
                         id={product.id}
                         image={product.image}
