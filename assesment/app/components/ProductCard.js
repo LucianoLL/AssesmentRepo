@@ -11,10 +11,11 @@ import {
     CardContent, 
     CardHeader, 
     CardMedia,
+    Typography,
 } from '@mui/material';
 
 export default function ProductCard({id, image, name, price}) {
-    const fixedPrice = price.toFixed(2)
+    const fixedPrice = price.toFixed(2);
     return(
         <Link href={`./product/${id}`}>
             <Card>
@@ -23,12 +24,11 @@ export default function ProductCard({id, image, name, price}) {
                     <CardMedia
                     component={"img"}
                     image={image}/>
-                    
                 }
                 <CardContent>
-                    {name}
-                    <br></br>
-                    {fixedPrice}
+                    <Typography>{name}</Typography>
+                    <Typography>${fixedPrice}</Typography>
+                    
                 </CardContent>
             </Card>
         </Link>
