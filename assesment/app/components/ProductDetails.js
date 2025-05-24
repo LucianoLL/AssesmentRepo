@@ -6,14 +6,16 @@ import{
     Button,
     Typography,
     Card,
+    CardActions,
     CardContent,
-    CardMedia
-} from '@mui/material'
+    CardMedia,
+    IconButton,
+} from '@mui/material';
 
 export default function ProductDetails({data}) {
     const fixedPrice = data.price.toFixed(2);
     return(
-        <Card>
+        <Card className='min-w-3/4'>
             {/* 
             'Return to Products' link:
             Seemed conceptually easier to add a Link to a Button,
@@ -37,6 +39,7 @@ export default function ProductDetails({data}) {
                     {
                         data.image &&
                         <CardMedia
+                        className='w-sm'
                         component={"img"}
                         image={data.image}/>
                     }
@@ -47,6 +50,10 @@ export default function ProductDetails({data}) {
                     <Typography>{data.name}</Typography>
                     <Typography>${fixedPrice}</Typography>
                     <Typography>{data.description}</Typography>
+
+                    <CardActions>
+                        <Button>Add to Cart</Button>
+                    </CardActions>
                 </CardContent>
 
             </Box>
