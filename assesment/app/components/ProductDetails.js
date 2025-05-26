@@ -2,61 +2,53 @@
 
 import Link from 'next/link';
 import{
-    Box,
     Button,
     Typography,
     Card,
     CardActions,
-    CardContent,
     CardMedia,
-    IconButton,
 } from '@mui/material';
 
 export default function ProductDetails({data}) {
     const fixedPrice = data.price.toFixed(2);
     return(
-        <Card className='min-w-3/4'>
+        <Card className='w-200'>
             {/* 
             'Return to Products' link:
             Seemed conceptually easier to add a Link to a Button,
             Doing so kept the same images assets between pages
             rather than directly use 'href=' in Button.
             */}
-            <CardContent>
+            <div className='p-2'>
                 <Button variant='contained'>
                     <Link className='font-bold' href="/">
                         ← Back to Products
                     </Link>
                 </Button>
-            </CardContent>
+            </div>
             
             {/* 
             A special Box to seperate contents into two columns
             */}
-            <Box className='columns-2'>
+            <div className='flex columns-2 p-2 gap-2'>
                 {/* Column 1: Product Image */}
-                <CardContent>
+                <div>
                     {
                         data.image &&
-                        <CardMedia
-                        className='w-sm'
-                        component={"img"}
-                        image={data.image}/>
+                        <img className='w-100' src={data.image}/>
                     }
-                </CardContent>
+                </div>
                 
                 {/* Column 2: Details */}
-                <CardContent>
-                    <Typography>{data.name}</Typography>
-                    <Typography>${fixedPrice}</Typography>
-                    <Typography>{data.description}</Typography>
+                <div className='pl-2'>
+                    <p className='text-2xl font-bold pb-2'>{data.name}</p>
+                    <p className='text-blue-400 text-xl pb-2'>${fixedPrice}</p>
+                    <p className='pb-2'>{data.description}</p>
 
-                    <CardActions>
-                        <Button>Add to Cart</Button>
-                    </CardActions>
-                </CardContent>
+                    <Button variant='contained'>Add to Cart</Button>
+                </div>
 
-            </Box>
+            </div>
                 
 
             

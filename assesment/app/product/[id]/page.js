@@ -43,7 +43,7 @@ export default function productPage() {
     if (error) return <div>Error: {error}</div>
 
     return (
-        <div className="flex justify-center items-center min-h-screen p-8 gap-16 sm:p-20">
+        <div className="flex justify-center p-8 gap-16 sm:p-20">
             <ProductDetails data={data} />
         </div>
     );
