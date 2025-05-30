@@ -9,8 +9,8 @@ export default function Home() {
       <div>
         <div className="columns-2 pb-8">
           <h1 className='text-3xl font-sans font-bold'>Products</h1>
-
         </div>
+
         <ProductGrid />
       </div>
       

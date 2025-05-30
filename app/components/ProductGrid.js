@@ -11,7 +11,7 @@ import ProductCard from './ProductCard';
 
 export default function ProductGrid() {
     const [data, setData] = useState([]);
-    const [loading, setLoading] =useState(true);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null)
 
     useEffect(() => {

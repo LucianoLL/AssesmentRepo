@@ -8,12 +8,16 @@ https://nextjs.org/docs/app/api-reference/file-conventions/page
 https://www.youtube.com/watch?v=N4-EkNJ6RFM
 Google Gemini's AI Overview
 */
-"use client"
+// "use client"
 
 import React, {useState, useEffect} from "react"
 import { useParams } from "next/navigation";
 import axios from "axios";
 import ProductDetails from "@/app/components/ProductDetails";
+
+export async function generateStaticParams() {
+
+}
 
 export default function productPage() {
     const [data, setData,] = useState([]);

@@ -1,16 +1,18 @@
 // components/ProductDetails
+"use client"
 
+// import CartItem from './CartItem';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import{
     Button,
-    Typography,
     Card,
-    CardActions,
-    CardMedia,
 } from '@mui/material';
 
 export default function ProductDetails({data}) {
     const fixedPrice = data.price.toFixed(2);
+    const addToCart = CartItem("addToCart");
+
     return(
         <Card className='w-200'>
             {/* 
@@ -45,7 +47,9 @@ export default function ProductDetails({data}) {
                     <p className='text-blue-400 text-xl pb-2'>${fixedPrice}</p>
                     <p className='pb-2'>{data.description}</p>
 
-                    <Button variant='contained'>Add to Cart</Button>
+                    <Button variant='contained'>
+                        Add to Cart
+                    </Button>
                 </div>
 
             </div>
