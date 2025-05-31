@@ -6,7 +6,6 @@ https://www.geeksforgeeks.org/axios-in-react-a-guide-for-beginners/
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Grid } from '@mui/material';
 import ProductCard from './ProductCard';
 
 export default function ProductGrid() {
@@ -35,7 +34,8 @@ export default function ProductGrid() {
     if (error) return <div>Error: {error}</div>;
 
     return(
-        <Grid container spacing={4} alignItems={'stretch'}>
+        <div className='flex flex-wrap gap-4'>
+
             {data.map((product) => (
             <ProductCard
                 key={product.id}
@@ -45,6 +45,7 @@ export default function ProductGrid() {
                 price={product.price}
             />                   
             ))}
-        </Grid>
+        </div>
+            
     );
 }

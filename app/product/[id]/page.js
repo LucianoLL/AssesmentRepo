@@ -6,7 +6,6 @@ https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 https://www.geeksforgeeks.org/next-js-functions-generatestaticparams/
 Google Gemini's AI Overview
 */
-
 import axios from "axios";
 // import { useRouter } from "next/router";
 import ProductDetails from "@/app/components/ProductDetails";
@@ -39,9 +38,11 @@ export default async function Page({params}) {
         const product = response.data;
         
         return (
-            <div className="flex justify-center p-8 gap-16 sm:p-20">
+            <div className="flex justify-center p-8">
                 <ProductDetails data={product} />
             </div>
+                
+            
         )
 
     } catch (error) {
