@@ -1,8 +1,5 @@
 // components/ProductDetails
-"use client"
-
 // import CartItem from './CartItem';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import{
     Button,
@@ -11,7 +8,7 @@ import{
 
 export default function ProductDetails({data}) {
     const fixedPrice = data.price.toFixed(2);
-    const addToCart = CartItem("addToCart");
+    // const addToCart = CartItem("addToCart");
 
     return(
         <Card className='w-200'>

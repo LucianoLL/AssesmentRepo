@@ -21,27 +21,35 @@ export async function generateStaticParams() {
             id: product.id,
         }));
 
-        console.log(paths)
-
-        return paths
-        
-        // return data
+        return paths;
 
     } catch (error) {
-        console.error(error)
-        return 
+        console.error(error);
 
+        return {};
     }
-}
+};
 
 
 export default async function Page({params}) {
-    const {id} = await params
+    const {id} = await params;
 
-    return (
-         <div className="flex justify-center p-8 gap-16 sm:p-20">
-            {/* <ProductDetails data={productData} /> */}
-            TEMP
-        </div>
-    )
-}
+    try {
+        const response = await axios.get(`https://cart-api.alexrodriguez.workers.dev/products/${id}`);
+        const product = response.data;
+        
+        return (
+            <div className="flex justify-center p-8 gap-16 sm:p-20">
+                <ProductDetails data={product} />
+            </div>
+        )
+
+    } catch (error) {
+        console.error(error);
+
+        return (
+            <div>{error}</div>
+        )
+    }
+
+};
