@@ -2,53 +2,46 @@
 
 /*
 References:
-https://nextjs.org/docs/app/api-reference/functions/use-params
-https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes
-https://nextjs.org/docs/app/api-reference/file-conventions/page
-https://www.youtube.com/watch?v=N4-EkNJ6RFM
+https://nextjs.org/docs/app/api-reference/functions/generate-static-params
+https://www.geeksforgeeks.org/next-js-functions-generatestaticparams/
 Google Gemini's AI Overview
 */
-// "use client"
 
-import React, {useState, useEffect} from "react"
-import { useParams } from "next/navigation";
 import axios from "axios";
+// import { useRouter } from "next/router";
 import ProductDetails from "@/app/components/ProductDetails";
 
-export async function generateStaticParams() {
 
+export async function generateStaticParams() {
+    try {
+        const response = await axios.get('https://cart-api.alexrodriguez.workers.dev/products');
+        const data = response.data;
+
+        const paths = data.map((product) => ({
+            id: product.id,
+        }));
+
+        console.log(paths)
+
+        return paths
+        
+        // return data
+
+    } catch (error) {
+        console.error(error)
+        return 
+
+    }
 }
 
-export default function productPage() {
-    const [data, setData,] = useState([]);
-    const [loading, setLoading] =useState(true);
-    const [error, setError] = useState(null);
-    /*
-    The line below was suggested from Google's AI overview,
-    most of my resources were used to cross-reference and
-    understanding the function.
-    */
-    const {id} = useParams();
 
-    useEffect(() => {
-        axios
-            .get(`https://cart-api.alexrodriguez.workers.dev/products/${id}`)
-            .then ((response) => {
-                setData(response.data);
-                setLoading(false)
-            })
-            .catch((err) => {
-                setError(err.message);
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return <div>Loading Page ...</div>
-    if (error) return <div>Error: {error}</div>
+export default async function Page({params}) {
+    const {id} = await params
 
     return (
-        <div className="flex justify-center p-8 gap-16 sm:p-20">
-            <ProductDetails data={data} />
+         <div className="flex justify-center p-8 gap-16 sm:p-20">
+            {/* <ProductDetails data={productData} /> */}
+            TEMP
         </div>
-    );
+    )
 }
