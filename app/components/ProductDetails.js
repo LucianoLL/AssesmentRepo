@@ -1,8 +1,10 @@
 // components/ProductDetails
 // import CartItem from './CartItem';
 
+
 import Link from 'next/link';
 import Image from 'next/image';
+import AddToCart from './AddToCart';
 
 export default function ProductDetails({data}) {
     const fixedPrice = data.price.toFixed(2);
@@ -53,18 +55,7 @@ export default function ProductDetails({data}) {
                     <p className='text-blue-400 text-xl pb-2'>${fixedPrice}</p>
                     <p className='pb-2'>{data.description}</p>
 
-                    <button className='rounded-md 
-                        bg-blue-500 
-                        font-sans-serif 
-                        font-bold 
-                        p-2 
-                        text-white
-                        cursor-pointer
-                        shadow-md
-                        object-bottom
-                        hover:bg-emerald-500'>
-                        Add to Cart
-                    </button>
+                    <AddToCart product={{data}}/>
                 </div>
             </div>
             
