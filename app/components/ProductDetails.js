@@ -16,11 +16,11 @@ export default function ProductDetails({data}) {
         // */}
         <div className="justify-center rows-2 p-8 gap-16 shadow-md w-3/4">
             <div className='p-2'>
-                <button className='rounded-md bg-blue-500 font-sans-serif font-bold p-2 text-white'>
-                    <Link  href="/">
-                        ← Back to Products
-                    </Link>
-                </button>
+                <Link  
+                    href="/"
+                    className='rounded-md bg-blue-500 font-sans-serif font-bold p-2 text-white'>
+                    ← Back to Products
+                </Link>
             </div>
             
             {/* 
