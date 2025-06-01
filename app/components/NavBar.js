@@ -10,7 +10,12 @@ export default function NavBar() {
         <nav className='flex h-18 shadow-sm bg-white justify-between'>
             {/* padding: 4 */}
             <div className='p-5'>
-                <Link className="font-sans text-blue-400 font-bold text-2xl" href="/">DigitalNEST Shop</Link>
+                <Link className="font-sans 
+                    text-blue-400 
+                    font-bold text-2xl" 
+                    href="/">
+                        Digital NEST Shop
+                </Link>
             </div>
         </nav>
     );

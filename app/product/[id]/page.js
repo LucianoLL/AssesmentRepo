@@ -7,7 +7,6 @@ https://www.geeksforgeeks.org/next-js-functions-generatestaticparams/
 Google Gemini's AI Overview
 */
 import axios from "axios";
-// import { useRouter } from "next/router";
 import ProductDetails from "@/app/components/ProductDetails";
 
 

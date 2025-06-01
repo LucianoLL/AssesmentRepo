@@ -12,7 +12,9 @@ export default function ProductCard({id, image, name, price}) {
     const fixedPrice = price.toFixed(2);
     return(
         // House entire Grid and Card in a Link component
-        <Link href={`./product/${id}`}>
+        <Link 
+            href={`./product/${id}`}
+            className='hover:-translate-y-4 hover:shadow-xl/20'>
             {/* 
             Gave the Card component the set dimensions if 75x70, trying to create 
             a subtle rectangle

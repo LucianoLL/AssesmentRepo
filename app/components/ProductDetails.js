@@ -14,39 +14,55 @@ export default function ProductDetails({data}) {
         // Doing so kept the same images assets between pages
         // rather than directly use 'href=' in Button.
         // */}
-        <div className="justify-center rows-2 p-8 gap-16 shadow-md w-3/4">
-            <div className='p-2'>
-                <Link  
-                    href="/"
-                    className='rounded-md bg-blue-500 font-sans-serif font-bold p-2 text-white'>
-                    ← Back to Products
-                </Link>
-            </div>
+        <div className="justify-center 
+            rows-2 
+            p-8 
+            gap-16 
+            shadow-md">
+            <Link  
+                href="/"
+                className='rounded-md 
+                    shadow-md
+                    bg-blue-500 
+                    font-sans-serif 
+                    font-bold 
+                    p-2 
+                    text-white
+                    hover:bg-emerald-500'>
+                ← Back to Products
+            </Link>
             
             {/* 
             A special Box to seperate contents into two columns
             */}
             
-            <div className='flex columns-2 p-2 gap-2'>
+            <div className='flex flex-wrap p-2 pt-5 gap-2'>
                 {/* Column 1: Product Image */}
-                <div className='relative w-3/4'>
-                    {
-                        data.image &&
-                        <Image 
-                            alt='ProductImage'
-                            fill
-                            objectFit='contain'
-                            src={data.image}/>
-                    }
-                </div>
+                {
+                    data.image &&
+                    <Image
+                        alt='ProductImage'
+                        width={500}
+                        height={500}
+                        src={data.image}/>
+                }
                 
                 {/* Column 2: Details */}
                 <div className='pl-2'>
-                    <p className='text-2xl font-bold pb-2'>{data.name}</p>
+                    <p className='text-5xl font-bold pb-2'>{data.name}</p>
                     <p className='text-blue-400 text-xl pb-2'>${fixedPrice}</p>
                     <p className='pb-2'>{data.description}</p>
 
-                    <button className='rounded-md bg-blue-500 font-sans-serif font-bold p-2 text-white'>
+                    <button className='rounded-md 
+                        bg-blue-500 
+                        font-sans-serif 
+                        font-bold 
+                        p-2 
+                        text-white
+                        cursor-pointer
+                        shadow-md
+                        object-bottom
+                        hover:bg-emerald-500'>
                         Add to Cart
                     </button>
                 </div>
